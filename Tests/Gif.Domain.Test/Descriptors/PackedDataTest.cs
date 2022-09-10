@@ -22,12 +22,9 @@ public class PackedDataTest
         var packedData = new PackedData()
         {
             GlobalColorTable = true,
-            ColorInformation = new()
-            {
-                ColorResoloution = new(false, false, true),
-                SortFlag = false,
-                SizeOfGlobalColorTable = new(false, false, true),
-            }
+            ColorResoloution = new(false, false, true),
+            SortFlag = false,
+            SizeOfGlobalColorTable = new(false, false, true),
         };
 
         var expected = new byte[] { 0x09, 0x01 };
