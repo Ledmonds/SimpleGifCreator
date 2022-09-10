@@ -9,18 +9,15 @@ public class PackedDataTest
     [Theory]
     [InlineData(false, new byte[] { 0x00, 0x00 })]
     [InlineData(true, new byte[] { 0x08, 0x00 })]
-    public void PackedData_Encodes_Correctly_Based_On_ColorTable_Flag(bool colorTable, byte[] expected)
+    public void ColorTable_Changes_Encoding_As_Most_Significant_Bit(bool colorTable, byte[] expected)
     {
-        var packedData = new PackedData()
-        {
-            GlobalColorTable = colorTable,
-        };
+        var packedData = new PackedData() { GlobalColorTable = colorTable, };
 
         packedData.Encode().Should().BeEquivalentTo(expected);
     }
 
     [Fact]
-    public void PackedData_Encodes_Based_On_PackedData()
+    public void All_Bits_In_Packed_Data_Influence_Encoding()
     {
         var packedData = new PackedData()
         {

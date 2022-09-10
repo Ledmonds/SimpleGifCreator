@@ -25,7 +25,7 @@ public class HeaderTest
 
     [Theory]
     [MemberData(nameof(TestData))]
-    public void Header_Converts_Correctly_To_Byte_Array(VersionHeader versionHeader, byte[] expected)
+    public void Header_Encoding_Reflects_Given_VersionHeader(VersionHeader versionHeader, byte[] expected)
     {
         var header = new Header() { VersionHeader = versionHeader, };
 

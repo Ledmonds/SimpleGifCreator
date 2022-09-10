@@ -30,8 +30,15 @@ public class BitArrayTest
 
     [Theory]
     [MemberData(nameof(GenerateTestData))]
-    public void BitArray_Correctly_Converts_To_Byte(BitArray bitArray, byte[] expected)
+    public void ToBytes_Converts_Byte_Array_Equivalent(BitArray bitArray, byte[] expected)
     {
         bitArray.ToBytes().Should().BeEquivalentTo(expected);
+    }
+
+    [Fact]
+    public void Empty_BitArray_Converts_To_Empty_Byte_Array()
+    {
+        var bitArray = new BitArray(0);
+        bitArray.ToBytes().Should().BeEquivalentTo(Array.Empty<byte>());
     }
 }
